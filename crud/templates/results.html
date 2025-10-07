@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}結果 - {{ label }}{% endblock %}
+{% block content %}
+<h2>{{ label }} の結果</h2>
+
+<div id="problem-list">
+  {% for r in results %}
+    <div class="problem {% if r.is_correct %}correct{% else %}incorrect{% endif %}">
+      <span class="num">{{ forloop.counter }}.</span>
+      <span>{{ r.a }}</span>
+      <span>
+        {% if op == 'addition' %}＋
+        {% elif op == 'subtraction' %}－
+        {% elif op == 'multiplication' %}×
+        {% else %}÷{% endif %}
+      </span>
+      <span>{{ r.b }}</span>
+      <span>=</span>
+      <span class="user-answer">{{ r.user_answer }}</span>
+
+      {% if not r.is_correct %}
+        <span class="correct-answer">（正解: {{ r.correct_answer }}）</span>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<p>今回の正解数：{{ score }} / 10</p>
+
+{% if total_3runs %}
+  <h3>3回合計：{{ total_3runs }} / 30</h3>
+  <p><a href="{% url 'top' %}">トップに戻る</a></p>
+{% else %}
+  <p><a href="{% url 'drill' op %}">次のラウンドへ</a></p>
+{% endif %}
+{% endblock %}

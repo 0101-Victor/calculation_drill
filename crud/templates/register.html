@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}新規登録(しんきとうろく){% endblock %}
+{% block content %}
+<div class="register-box">
+  <h2>👦👧 新(あたら)しいユーザー登録(とうろく)</h2>
+  <p>すきな名前とパスワードを登録(とうろく)してドリルをはじめよう！</p>
+  <p class="note">※ メールアドレスは「あなたの成績(せいせき)を保存(ほぞん)するため」だけに使います。メールを送ることはありません。</p>
+  <p class="note">※ 1か月利用(りよう)がないとデータは消(き)えます。続(つづ)けるにはもう一度登録(とうろく)してください。</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>なまえ（ユーザー名）:<br> {{ form.username }}</p>
+    <p>メールアドレス（なくてもOK）:<br> {{ form.email }}</p>
+    <p>パスワード:<br> {{ form.password1 }}</p>
+    <p>もう一度パスワード:<br> {{ form.password2 }}</p>
+    <button type="submit">▶ 登録(とうろく)する</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}トップ{% endblock %}
+{% block content %}
+<h2>ドリルをえらぼう！</h2>
+<div class="menu">
+  <a class="drill-btn" href="{% url 'drill' 'addition' %}">たし算ドリル</a>
+  {% if user.is_authenticated %}<a class="drill-btn weak" href="{% url 'drill_weak' 'addition' %}">苦手たし算</a>{% endif %}
+
+  <a class="drill-btn" href="{% url 'drill' 'subtraction' %}">ひき算ドリル</a>
+  {% if user.is_authenticated %}<a class="drill-btn weak" href="{% url 'drill_weak' 'subtraction' %}">苦手ひき算</a>{% endif %}
+
+  <a class="drill-btn" href="{% url 'drill' 'multiplication' %}">かけ算ドリル</a>
+  {% if user.is_authenticated %}<a class="drill-btn weak" href="{% url 'drill_weak' 'multiplication' %}">苦手かけ算</a>{% endif %}
+
+  <a class="drill-btn" href="{% url 'drill' 'division' %}">わり算ドリル</a>
+  {% if user.is_authenticated %}<a class="drill-btn weak" href="{% url 'drill_weak' 'division' %}">苦手わり算</a>{% endif %}
+</div>
+{% endblock %}

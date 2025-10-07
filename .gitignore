@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+*.sqlite3
+db.sqlite3
+
+# Virtual Environment
+myvenv/
+venv/
+
+# Environment Files（機密情報）
+.env
+.env.dev
+.env.prod
+secret/
+
+# IDE / エディタ
+.vscode/
+.idea/
+*.swp

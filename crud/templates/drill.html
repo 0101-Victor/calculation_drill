@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}{{ label }}{% endblock %}
+{% block content %}
+<h2>{{ label }}</h2>
+{% if round_display %}<p>ラウンド {{ round_display }} / 3</p>{% endif %}
+
+<form method="post" id="drill-form">
+  {% csrf_token %}
+  <div id="problem-list">
+    {% for p in problems %}
+      <div class="problem" style="display:none;">
+        <span class="num">{{ forloop.counter }}.</span>
+        <span>{{ p.a }}</span>
+        <span>{{ p.sym }}</span>
+        <span>{{ p.b }}</span>
+        <span>=</span>
+        <input type="hidden" name="a{{ forloop.counter0 }}" value="{{ p.a }}">
+        <input type="hidden" name="b{{ forloop.counter0 }}" value="{{ p.b }}">
+        <input type="hidden" name="ans{{ forloop.counter0 }}" value="{{ p.ans }}">
+        <input type="text" name="answer{{ forloop.counter0 }}" class="answer-box">
+      </div>
+    {% endfor %}
+  </div>
+  <button type="submit" id="submit-btn" style="display:none;">答え合わせ</button>
+</form>
+
+<script>
+// 0.2秒間隔で1問ずつ表示
+document.addEventListener("DOMContentLoaded", function(){
+  let problems = document.querySelectorAll(".problem");
+  let btn = document.getElementById("submit-btn");
+  problems.forEach((p, i) => {
+    setTimeout(() => {
+      p.style.display = "block";
+      p.classList.add("fade-in");
+      if (i === problems.length - 1) {
+        btn.style.display = "block";
+      }
+    }, i * 200);
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}ご意見・ご感想{% endblock %}
+{% block content %}
+<h2>ご意見・ご感想</h2>
+<p>いつもご利用ありがとうございます。サービス改善のため、あたたかいお声をお寄せください。</p>
+<p class="note">※ 返信が必要な場合のみメールアドレスをご記入ください。メール送信は行いません。</p>
+
+<form method="post" class="register-box">
+  {% csrf_token %}
+  <p>メールアドレス（任意）<br>{{ form.email }}</p>
+  <p>メッセージ<br>{{ form.message }}</p>
+  <button type="submit">▶ 送信する</button>
+</form>
+{% endblock %}

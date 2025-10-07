@@ -1,0 +1,124 @@
+body {
+  font-family: "Kosugi Maru", "Arial Rounded MT Bold", sans-serif;
+  background-color: #fffdf5;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+header h1 {
+  text-align: center;
+  color: #ff80ab; /* やさしいピンク */
+  padding: 15px 0;
+}
+
+h2 {
+  color: #4db6ac; /* 落ち着いたミント色 */
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.drill-btn {
+  display: block;
+  padding: 20px 25px;
+  background: #ffecb3; /* パステル黄色 */
+  border: 2px solid #ffd54f;
+  border-radius: 15px;
+  font-size: 1.4em;
+  text-align: center;
+  width: 220px;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.15s, background 0.2s;
+}
+
+.drill-btn:hover {
+  transform: scale(1.05);
+  background: #fff9c4; /* より明るい黄色 */
+}
+
+.drill-btn.weak {
+  background: #b3e5fc; /* 水色で区別 */
+  border: 2px solid #4fc3f7;
+}
+.drill-btn.weak:hover {
+  background: #e1f5fe;
+}
+
+.problem {
+  font-size: 1.3em;
+  margin: 12px 0;
+  background: #ffffff;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.answer-box {
+  width: 60px;
+  padding: 5px;
+  font-size: 1.2em;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.correct {
+  background: #c8e6c9; /* パステルグリーン */
+}
+
+.incorrect {
+  background: #ffccbc; /* パステルオレンジ */
+}
+
+button {
+  background: #ffecb3; /* やさしい黄色 */
+  border: 2px solid #ffd54f;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+
+button:hover {
+  background: #ffe082;
+}
+
+.user-answer {
+  font-weight: bold;
+  color: #333;
+  margin-left: 5px;
+}
+
+.correct-answer {
+  margin-left: 10px;
+  color: #d32f2f; /* 赤で強調 */
+  font-size: 0.9em;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #666;
+  background: #fff3cd;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin: 6px 0 12px;
+}
+.register-box {
+  max-width: 520px;
+  margin: 12px auto;
+  padding: 16px;
+  border: 2px solid #e0f2f1;
+  border-radius: 12px;
+  background: #ffffff;
+}
